@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { loadData } from "../utils/loadData";
-import Issue from "./issue";
+import React, { Component } from 'react';
+import { loadData } from '../utils/loadData';
+import Issue from './issue';
 
 class IssueList extends Component {
   state = {

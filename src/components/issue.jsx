@@ -1,12 +1,10 @@
-import React from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Issue = ({ issue }) => (
   <>
     <h2>{issue.title}</h2>
-    <p>
-      <a href={issue.url}>{issue.url}</a>
-    </p>
-    <p>{issue.body}</p>
+    <Link to={`/issue/${issue.number}`}>View Issue Details</Link>
   </>
 );
 
