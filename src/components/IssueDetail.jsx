@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import ReactMarkdown from 'react-markdown';
 import { loadData } from '../utils/loadData';
+import { Title } from 'bloomer';
 
 class IssueDetail extends Component {
   state = {
@@ -21,8 +23,10 @@ class IssueDetail extends Component {
     const { issueDetails } = this.state;
     return (
       <div>
-        <h1>{issueDetails.title}</h1>
-        <p>{issueDetails.body}</p>
+        <Title isSize={2} tag="h1">
+          {issueDetails.title}
+        </Title>
+        <ReactMarkdown source={issueDetails.body} escapeHtml={false} />
       </div>
     );
   }
