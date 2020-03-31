@@ -13,7 +13,7 @@ class IssueList extends Component {
     );
 
     this.setState({
-      issues
+        issues
     });
   }
 

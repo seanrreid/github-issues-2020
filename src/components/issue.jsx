@@ -1,4 +1,5 @@
 import React from "react";
+import ReactMarkdown from 'react-markdown/with-html';
 
 const Issue = ({ issue }) => (
   <>
@@ -6,7 +7,7 @@ const Issue = ({ issue }) => (
     <p>
       <a href={issue.url}>{issue.url}</a>
     </p>
-    <p>{issue.body}</p>
+    <ReactMarkdown source={issue.body} escapeHtml={false} />
   </>
 );
 
