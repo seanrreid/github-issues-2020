@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
-import ReactMarkdown from 'react-markdown';
-import { loadData } from '../utils/loadData';
-import { Title } from 'bloomer';
+import React, { Component } from "react";
+import ReactMarkdown from "react-markdown";
+import { loadData } from "../utils/loadData";
+import { Title } from "bloomer";
+
+import { useParams } from "react-router-dom";
 
 class IssueDetail extends Component {
   state = {
-    issueDetails: []
+    issueDetails: [],
   };
 
   async componentDidMount() {
@@ -15,11 +17,12 @@ class IssueDetail extends Component {
     );
 
     this.setState({
-      issueDetails
+      issueDetails,
     });
   }
 
   render() {
+    const { id } = useParams();
     const { issueDetails } = this.state;
     return (
       <div>
