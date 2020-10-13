@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Route, Link } from "react-router-dom";
 import { loadData } from "../utils/loadData";
 import Issue from "./Issue";
 
@@ -21,13 +22,31 @@ class IssueList extends Component {
     const { issues } = this.state;
 
     return (
-      <ul>
+      <>
         {!!issues.length ? (
-          issues.map((issue) => <Issue key={issue.id} issue={issue} />)
+          <>
+            <h1>Github Issues List</h1>
+            <Route exact path="/">
+              <ul>
+                {issues.map((issue) => {
+                  return (
+                    <li key={issue.id}>
+                      {issue.title}
+                      <Link to={`/issue/${issue.number}`}>View Details</Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </Route>
+            <Route path={`/issue/:issue_number`}>
+              <Link to="/">Return to List</Link>
+              <Issue issues={issues} />
+            </Route>
+          </>
         ) : (
-          <li>No Issues</li>
+          <p>Fetching issues...</p>
         )}
-      </ul>
+      </>
     );
   }
 }
