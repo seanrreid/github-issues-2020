@@ -3,6 +3,8 @@ import { Route, Link } from "react-router-dom";
 
 import { loadData } from "../utils/loadData";
 
+import { Title } from "bloomer";
+
 import Issue from "./Issue";
 
 class IssueList extends Component {
@@ -11,7 +13,6 @@ class IssueList extends Component {
   };
 
   async componentDidMount() {
-    console.log("Issue List mounted");
     const issues = await loadData(
       `https://api.github.com/repos/facebook/create-react-app/issues`
     );
@@ -29,6 +30,9 @@ class IssueList extends Component {
         {!!issues.length ? (
           <>
             <Route exact path="/">
+              <Title isSize={2} tag="h1">
+                Github Issues List
+              </Title>
               <ul>
                 {issues.map((issue) => (
                   <li key={issue.id}>
