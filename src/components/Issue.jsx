@@ -16,11 +16,16 @@ const Issue = (props) => {
       <nav style={{ margin: "1rem auto" }}>
         <Link to="/">Back to List</Link>
       </nav>
-
-      <Title isSize={2} tag="h1">
-        {issue.title}
-      </Title>
-      <ReactMarkdown source={issue.body} escapeHtml={false} />
+      {!!issue ? (
+        <>
+          <Title isSize={2} tag="h1">
+            {issue.title}
+          </Title>
+          <ReactMarkdown source={issue.body} escapeHtml={false} />
+        </>
+      ) : (
+        <p>Loading issues...</p>
+      )}
     </>
   );
 };
